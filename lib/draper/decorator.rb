@@ -220,6 +220,7 @@ module Draper
 
     def self.inferred_source_class
       name = source_name
+      name = 'ContactLens' if name == 'ContactLensClass' # FIXME
       name.constantize
     rescue NameError => error
       raise if name && !error.missing_name?(name)
